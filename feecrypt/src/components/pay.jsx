@@ -85,7 +85,7 @@ const Pay = () => {
     if (RegNo) {
       // Fetch fees data from backend using RegNo
       axios
-        .get(`${import.meta.env.VITE_BACK_END}/pay`, { params: { RegNo } })
+        .get("https://feetest.onrender.com/pay", { params: { RegNo } })
         .then((response) => {
           setFeesData(response.data.Fees);
         })
@@ -138,7 +138,7 @@ const Pay = () => {
   
       try {
         // Send the fee data to the backend using axios.post
-        await axios.post(`${import.meta.env.VITE_BACK_END}/fees`, {
+        await axios.post("https://feetest.onrender.com/fees", {
           RegNo1,
           selectedFees1,
           totalAmount1,
@@ -163,7 +163,7 @@ const Pay = () => {
   
       // Reload the page data (or trigger a re-fetch)
       axios
-        .get(`${import.meta.env.VITE_BACK_END}/pay`, { params: { RegNo } })
+        .get("https://feetest.onrender.com/pay", { params: { RegNo } })
         .then((response) => {
           setFeesData(response.data.Fees); // Update fees data
         })
