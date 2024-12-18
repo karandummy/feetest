@@ -19,7 +19,7 @@ const Home = () => {
     }
 
     axios
-      .post(`${import.meta.env.VITE_BACK_END}/home`, { Reg_No, password })
+      .post("https://feetest.onrender.com//home", { Reg_No, password })
       .then((res) => {
        // console.log(res); // Debugging server response
         if (res.data && res.data.message!=="The password is incorrect" && res.data.message!=="Reg No not found") {
