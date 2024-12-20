@@ -118,8 +118,7 @@ const Pay = () => {
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
       if (isMobile && !window.ethereum) {
-        const deeplink = `https://metamask.app.link/send/${import.meta.env.VITE_CONTRACT_ADDRESS}?value=${totalAmount}`;
-        window.location.href = deeplink;
+        alert('mobile')
         return;
       }
 
@@ -128,7 +127,7 @@ const Pay = () => {
       await window.ethereum.request({ method: 'eth_requestAccounts' }); // Request user accounts
       const accounts = await web3.eth.getAccounts(); // Get user's accounts
       const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-  
+  l
       const receipt = await contract.methods
         .payFee()
         .send({
