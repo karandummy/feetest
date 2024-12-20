@@ -118,9 +118,8 @@ const Pay = () => {
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
       if (isMobile && !window.ethereum) {
-        // Redirect to MetaMask mobile app if no Ethereum provider is detected
-        const currentUrl = encodeURIComponent(window.location.href);
-        window.open(`https://metamask.app.link/dapp/${currentUrl}`, "_blank");
+        const deeplink = `https://metamask.app.link/send/${import.meta.env.VITE_CONTRACT_ADDRESS}?value=${totalAmount}`;
+        window.location.href = deeplink;
         return;
       }
 
