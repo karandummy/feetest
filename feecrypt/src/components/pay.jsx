@@ -119,6 +119,13 @@ const Pay = () => {
 
       if (isMobile && !window.ethereum) {
         alert('mobile')
+        
+
+    // Construct MetaMask deeplink URL
+    const deeplink = "https://metamask.app.link/dapp/https://feetest-1.onrender.com";
+
+    // Redirect user to pMetaMask
+    window.location.href = deeplink;
         return;
       }
 
