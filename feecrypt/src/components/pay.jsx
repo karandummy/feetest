@@ -114,27 +114,11 @@ const Pay = () => {
 
   const handlePay = async () => {
     try {
-
-    //   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    //   if (isMobile && !window.ethereum) {
-    //     alert('mobile')
-        
-
-    // // Construct MetaMask deeplink URL
-    // const deeplink = "https://metamask.app.link/dapp/https://feetest-1.onrender.com";
-
-    // // Redirect user to pMetaMask
-    // window.location.href = deeplink;
-    //     return;
-    //   }
-
-      
       const web3 = new Web3(window.ethereum); // Initialize Web3
       await window.ethereum.request({ method: 'eth_requestAccounts' }); // Request user accounts
       const accounts = await web3.eth.getAccounts(); // Get user's accounts
       const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-  l
+  
       const receipt = await contract.methods
         .payFee()
         .send({
