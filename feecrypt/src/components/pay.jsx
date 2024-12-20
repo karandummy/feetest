@@ -172,7 +172,7 @@ const Pay = () => {
         });
     } catch (error) {
       console.error('Payment failed:', error);
-      alert('Payment failed. Please try again.');
+      alert(error);
     }
   };
   
