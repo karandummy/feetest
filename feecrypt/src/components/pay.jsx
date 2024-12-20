@@ -114,6 +114,17 @@ const Pay = () => {
 
   const handlePay = async () => {
     try {
+
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      if (isMobile && !window.ethereum) {
+        // Redirect to MetaMask mobile app if no Ethereum provider is detected
+        const currentUrl = encodeURIComponent(window.location.href);
+        window.open(`https://metamask.app.link/dapp/${currentUrl}`, "_blank");
+        return;
+      }
+
+      
       const web3 = new Web3(window.ethereum); // Initialize Web3
       await window.ethereum.request({ method: 'eth_requestAccounts' }); // Request user accounts
       const accounts = await web3.eth.getAccounts(); // Get user's accounts
